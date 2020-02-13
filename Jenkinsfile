@@ -2,8 +2,8 @@ node {
     try {
         notifyBuild('STARTED')
 
-        stage('Prepare code') {
-            echo 'do checkout stuff'
+        stage('Checkout') {
+            checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/srshinde/test.git']]])
         }
 
         stage('Testing') {
