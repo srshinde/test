@@ -1,7 +1,13 @@
-stage('Test') {
-  step {
-    echo "testing"
-  }
+pipeline {
+    agent any
+    stages { 
+        stage('Example') {
+            steps {
+                echo 'Hello World'
+            }
+        }
+    }
+}
   post {
     success {
       slackSend color: "good", message: "${JOB_NAME} ${currentBuild.displayName} passed: ${BUILD_URL} in ENV: ${ENV}"
