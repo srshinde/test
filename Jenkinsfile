@@ -7,7 +7,6 @@ pipeline {
             }
         }
     }
-}
   post {
     success {
       slackSend color: "good", message: "${JOB_NAME} ${currentBuild.displayName} passed: ${BUILD_URL} in ENV: ${ENV}"
