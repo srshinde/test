@@ -1,5 +1,5 @@
 stage('Test') {
-  steps {
+  step {
     echo "testing"
   }
   post {
