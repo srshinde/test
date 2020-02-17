@@ -16,6 +16,9 @@ pipeline {
         }
     }
   post {
+    always {
+        echo 'One way or another, I have finished'
+    }
     success {
       slackSend color: "good", message: "${JOB_NAME} ${currentBuild.displayName} passed: ${BUILD_URL} in ENV"
     }
