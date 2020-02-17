@@ -10,7 +10,7 @@ pipeline {
             when {
                 branch 'production'
             }
-            steps {
+            step {
                 echo 'Deploying'
             }
         }
