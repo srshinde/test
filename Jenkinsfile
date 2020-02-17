@@ -16,13 +16,11 @@ pipeline {
         }
     }
   post {
-    success {
-      slackSend color: "good", message: "${JOB_NAME} ${currentBuild.displayName} passed: ${BUILD_URL} in ENV"
-    }
-  }
-  post {
     failure {
       slackSend color: "danger", message: "${JOB_NAME} ${currentBuild.displayName} failed: ${BUILD_URL} in ENV"
+    }
+    success {
+      slackSend color: "good", message: "${JOB_NAME} ${currentBuild.displayName} passed: ${BUILD_URL} in ENV"
     }
   }
 }
