@@ -1,5 +1,5 @@
 pipeline {
-    agent anyf
+    agent any
     stages {
         stage('Example Build') {
             steps {
@@ -16,12 +16,11 @@ pipeline {
         }
     }
   post {
-    always {
-        echo 'One way or another, I have finished'
-    }
     success {
       slackSend color: "good", message: "${JOB_NAME} ${currentBuild.displayName} passed: ${BUILD_URL} in ENV"
     }
+  }
+  post {
     failure {
       slackSend color: "danger", message: "${JOB_NAME} ${currentBuild.displayName} failed: ${BUILD_URL} in ENV"
     }
